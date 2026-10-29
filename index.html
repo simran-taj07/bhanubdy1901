@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Darling 💖</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; display: flex; align-items: center;
+  justify-content: center; text-align: center; font-family: Georgia, serif;
+  background: linear-gradient(135deg,#e6d5ff,#c8a2e8,#fff0fa); color: #633b80;
+}
+.card {
+  width: 90%; max-width: 420px; margin: 20px; padding: 28px 22px;
+  border-radius: 25px; background: #ffffffdf; box-shadow: 0 8px 30px #8060a333;
+}
+h1 { font-size: 32px; }
+#countdown { font-size: 23px; font-weight: bold; margin: 20px 0; color: #9566b5; }
+button {
+  background: #9870c9; color: white; border: none; border-radius: 30px;
+  padding: 14px 23px; font-size: 16px; cursor: pointer;
+}
+#surprise { display: none; line-height: 1.8; margin-top: 22px; animation: fade 1s; }
+@keyframes fade { from {opacity: 0; transform: translateY(10px);} to {opacity: 1; transform: translateY(0);} }
+</style>
+</head>
+<body>
+<div class="card">
+  <div style="font-size:48px">🎂💖🎀</div>
+  <h1>Advance Happy Birthday,<br>Darling! 💖</h1>
+  <p>Someone special is getting closer to her special day! ✨</p>
+  <div id="countdown" aria-live="polite"></div>
+  <p>November 1st is all about YOU! 🎉</p>
+  <button onclick="showSurprise()">Open Your Surprise 🎁</button>
+  <div id="surprise">
+    <h2>Dear Darling 💌</h2>
+    <p>Happy Birthday in advance to my favourite person! 💖 You are one of the sweetest gifts life has given me. Thank you for being my happiness, my comfort, and my favourite person to talk to. 🥹</p>
+    <p>Your Shemdi loves you a lot! 💖🫂 Please stay the same, always keep that beautiful heart of yours, and never stop being YOU.</p>
+    <p>No matter how life changes, I wish you endless happiness, love, laughter, and beautiful memories. You deserve all the happiness in this world! 🌷</p>
+    <h3>Forever your Shemdi 💖</h3>
+    <p>Lots of love, hugs and kisses 🎀💌</p>
+  </div>
+</div>
+<script>
+function updateCountdown() {
+  const now = new Date();
+  let birthday = new Date(now.getFullYear(), 10, 1, 0, 0, 0);
+  if (now >= birthday) birthday = new Date(now.getFullYear() + 1, 10, 1, 0, 0, 0);
+  const diff = birthday - now;
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor(diff / 3600000) % 24;
+  const minutes = Math.floor(diff / 60000) % 60;
+  const seconds = Math.floor(diff / 1000) % 60;
+  document.getElementById("countdown").innerHTML =
+    days + " Days 💖<br>" + hours + " Hours " + minutes + " Min " + seconds + " Sec";
+}
+function showSurprise() {
+  document.getElementById("surprise").style.display = "block";
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+</body>
+</html>
